@@ -259,7 +259,7 @@ group by p.product_id, p.product_name
 --18. Subquery to Find Products with Low Stock.
 
 select*from products 
-where stock_quantity < (select avg(stock_quantity) from products);
+where stock_quantity < (select avg(stock_quantity) from products)
 
 
 --19. Subquery to Find Customers Who Placed High-Value Orders.
