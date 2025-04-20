@@ -8,7 +8,7 @@ namespace Asset_Management
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Build the configuration to read appsettings.json
             // The IConfiguration object will help us access the connection string stored in appsettings.json
