@@ -11,7 +11,7 @@ use Ecommerce
 
 create table Customers
 (
-customer_id int identity primary key not null ,
+customer_id int identity primary key,
 customer_name varchar(50),
 email varchar(50),
 customer_password varchar(50)
@@ -20,7 +20,7 @@ customer_password varchar(50)
 
 create table products
 (
-product_id int identity primary key not null ,
+product_id int identity primary key ,
 product_name varchar(50),
 product_description varchar(50),
 price decimal(10,2),
@@ -31,7 +31,7 @@ stock_quantity int
 
 create table cart
 (
-cart_id int identity primary key not null,
+cart_id int identity primary key ,
 customer_id int,
 product_id int,
 quantity int,
@@ -43,7 +43,7 @@ constraint fk_product foreign key (product_id) references products(product_id)
 
 create table orders
 (
-order_id int identity primary key not null,
+order_id int identity primary key ,
 customer_id int,
 order_date date,
 total_price decimal(10,2),
@@ -54,7 +54,7 @@ constraint fk_customerorder foreign key (customer_id) references customers(custo
 
 create table order_items
 (
-order_item_id int identity primary key not null,
+order_item_id int identity primary key ,
 order_id int,
 product_id int,
 quantity int,
@@ -139,6 +139,9 @@ insert into cart (customer_id, product_id, quantity) values
 (6, 10, 2),
 (6, 9, 3),
 (7, 7, 2)
+
+
+insert into cart values((select customer_id from customers where customer_name='John Doe' ),(select product_id from products where product_name='Laptop' ),3)
 
 select*from cart
 
@@ -255,6 +258,10 @@ select p.product_id, p.product_name,sum(oi.quantity * p.price) as product_revenu
 from order_items oi
 join products p on oi.product_id = p.product_id
 group by p.product_id, p.product_name
+
+
+
+
 
 --18. Subquery to Find Products with Low Stock.
 

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!-- Specifies the output type for the project (executable) -->
+		<OutputType>Exe</OutputType>
+
+		<!-- Defines the target framework version (in this case, .NET 8.0) -->
+		<TargetFramework>net8.0</TargetFramework>
+
+		<!-- Sets the root namespace for the project -->
+		<RootNamespace>StudentInformationSystem</RootNamespace>
+
+		<!-- Enables implicit using directives for commonly used namespaces -->
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Enables nullable reference type warnings to improve code quality -->
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Compiles all C# files within the 'entity', 'dao', 'dao/impl', 'exception', 'util', and 'main' directories -->
+		<Compile Include="entity\*.cs" />
+		<Compile Include="dao\*.cs" />
+		<Compile Include="dao\impl\*.cs" />
+		<Compile Include="exception\*.cs" />
+		<Compile Include="util\*.cs" />
+		<Compile Include="main\Program.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- NuGet package references needed for the project -->
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+		<!-- SQL Server client for database operations -->
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+		<!-- For handling configuration settings -->
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<!-- JSON parsing library -->
+	</ItemGroup>
+
+</Project>
